@@ -9,6 +9,7 @@
 #import "CurrencyRateTableViewController.h"
 #import "CurrencyRate.h"
 #import "CurrencyListTableViewCell.h"
+#import "SettingsViewController.h"
 
 @interface CurrencyRateTableViewController ()
 
@@ -52,8 +53,16 @@
 }
 
 - (void)setNavBarRightButton {
-    UIBarButtonItem* settingsBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:nil];
+    UIBarButtonItem* settingsBarButtonItem = [[UIBarButtonItem alloc]
+                                              initWithTitle:@"Settings"
+                                              style:UIBarButtonItemStylePlain
+                                              target:self
+                                              action:@selector(openSettings:)];
     self.navigationItem.rightBarButtonItem = settingsBarButtonItem;
+}
+- (void)openSettings:(id)sender {
+    SettingsViewController *settingsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+    [self presentViewController:settingsViewController animated:YES completion:nil];
 }
 
 @end
