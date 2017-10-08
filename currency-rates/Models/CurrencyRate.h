@@ -13,9 +13,15 @@
 @property (nonatomic, strong) NSString *name;
 @property double rate;
 @property (nonatomic, strong) NSDate *ts;
+@property BOOL favorite;
 
++ (NSArray *)getCurrencyRatesWithFilter:(NSString *)filter;
 + (NSArray *)getAllCurrencyRates;
++ (NSArray *)getFavoriteCurrencyRates;
 + (NSURLSessionDataTask *)fetchCurrencyRatesFromAPIWithBlock:(void (^)(BOOL success, NSError *error))block;
 + (NSURLSessionDataTask *)fetchCurrencyRatesFromAPI;
++ (CurrencyRate *)getMainCurrencyRate;
++ (void)setMainCurrencyRate:(CurrencyRate *)currencyRate;
+- (BOOL)toggleFavorite;
 
 @end

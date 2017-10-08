@@ -18,14 +18,15 @@
     currencyRate.name = name;
     currencyRate.rate = rate;
     currencyRate.ts = ts;
+    currencyRate.favorite = NO;
     
     return currencyRate;
 }
 
-+ (NSArray *)getAllCurrencyRates {
++ (NSArray *)getCurrencyRatesWithFilter:(NSString *)filter {
     NSMutableArray *result = [NSMutableArray array];
     FMDatabase *database = [DBManager getDatabase];
-    NSString *query = @"SELECT * FROM currencyrate;";
+    NSString *query = [NSString stringWithFormat:@"SELECT * FROM currencyrate %@;", filter ? filter : @""];
     
     FMResultSet *resultSet = [database executeQuery:query];
     
@@ -33,13 +34,23 @@
         NSString *name = [resultSet stringForColumn:@"name"];
         double rate = [resultSet doubleForColumn:@"rate"];
         NSDate *ts = [resultSet dateForColumn:@"ts"];
+        BOOL favorite = [resultSet boolForColumn:@"favorite"];
         
         CurrencyRate *currencyRate = [CurrencyRate initWithName:name WithRate:rate WithTS:ts];
+        currencyRate.favorite = favorite;
         
         [result addObject:currencyRate];
     }
     
     return [NSArray arrayWithArray:result];
+}
+
++ (NSArray *)getAllCurrencyRates {
+    return [CurrencyRate getCurrencyRatesWithFilter:nil];
+}
+
++ (NSArray *)getFavoriteCurrencyRates {
+    return [CurrencyRate getCurrencyRatesWithFilter:@"WHERE favorite = 1"];
 }
 
 +(CurrencyRate *)getCurrencyRateWithName:(NSString *)name {
@@ -52,8 +63,11 @@
         NSString *name = [resultSet stringForColumn:@"name"];
         double rate = [resultSet doubleForColumn:@"rate"];
         NSDate *ts = [resultSet dateForColumn:@"ts"];
+        BOOL favorite = [resultSet boolForColumn:@"favorite"];
         
-        return [CurrencyRate initWithName:name WithRate:rate WithTS:ts];
+        CurrencyRate *currencyRate = [CurrencyRate initWithName:name WithRate:rate WithTS:ts];
+        currencyRate.favorite = favorite;
+        return currencyRate;
     }
     
     return nil;
@@ -127,9 +141,33 @@
     }];
 }
 
-
 + (NSURLSessionDataTask *)fetchCurrencyRatesFromAPI {
     return [CurrencyRate fetchCurrencyRatesFromAPIWithBlock:nil];
+}
+
++ (CurrencyRate *)getMainCurrencyRate {
+    NSString *mainCurrencyName = [[NSUserDefaults standardUserDefaults] stringForKey:@"mainCurrency"];
+    
+    return [CurrencyRate getCurrencyRateWithName:mainCurrencyName];
+}
+
++ (void)setMainCurrencyRate:(CurrencyRate *)currencyRate {
+    [[NSUserDefaults standardUserDefaults] setObject:currencyRate.name forKey:@"mainCurrency"];
+}
+
+- (BOOL)toggleFavorite {
+    self.favorite = !self.favorite;
+    FMDatabase *database = [DBManager getDatabase];
+    
+    NSString *query = [NSString stringWithFormat:@"UPDATE currencyrate SET favorite = %d WHERE name = '%@';", self.favorite, self.name];
+    
+    BOOL success = [database executeUpdate:query];
+    
+    if (!success) {
+        self.favorite = !self.favorite;
+    }
+    
+    return self.favorite;
 }
 
 @end

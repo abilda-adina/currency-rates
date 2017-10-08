@@ -8,8 +8,6 @@
 
 #import "MainCurrencyTableViewController.h"
 #import "CurrencyRate.h"
-#import "CurrencyListTableViewCell.h"
-#import "SettingsViewController.h"
 #import "MainCurrencyTableViewCell.h"
 
 @interface MainCurrencyTableViewController ()
@@ -44,8 +42,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    MainCurrencyTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [[NSUserDefaults standardUserDefaults] setObject:cell.mainCurrencyName.text forKey:@"mainCurrency"];
+    [CurrencyRate setMainCurrencyRate:self.currencies[[indexPath row]]];
 }
 
 @end

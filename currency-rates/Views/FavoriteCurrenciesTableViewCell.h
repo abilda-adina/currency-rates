@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface FavoriteCurrenciesTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *name;
 
 @end

@@ -30,7 +30,7 @@
             [self.tableView reloadData];
         }
     }];
-    [self setNavBarRightButton];
+    //[self setNavBarRightButton];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -52,17 +52,17 @@
     return cell;
 }
 
-- (void)setNavBarRightButton {
-    UIBarButtonItem* settingsBarButtonItem = [[UIBarButtonItem alloc]
-                                              initWithTitle:@"Settings"
-                                              style:UIBarButtonItemStylePlain
-                                              target:self
-                                              action:@selector(openSettings:)];
-    self.navigationItem.rightBarButtonItem = settingsBarButtonItem;
-}
-- (void)openSettings:(id)sender {
-    SettingsViewController *settingsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
-    [self presentViewController:settingsViewController animated:YES completion:nil];
-}
+//- (void)setNavBarRightButton {
+//    UIBarButtonItem* settingsBarButtonItem = [[UIBarButtonItem alloc]
+//                                              initWithTitle:@"Settings"
+//                                              style:UIBarButtonItemStylePlain
+//                                              target:self
+//                                              action:@selector(openSettings:)];
+//    self.navigationItem.rightBarButtonItem = settingsBarButtonItem;
+//}
+//- (void)openSettings:(id)sender {
+//    SettingsViewController *settingsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+//    [self presentViewController:settingsViewController animated:YES completion:nil];
+//}
 
 @end

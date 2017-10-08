@@ -41,9 +41,10 @@
 
 + (BOOL)createCurrencyRateTableWithDatabase:(FMDatabase *)database {
     NSString *query = @"CREATE TABLE currencyrate ("
-                       "    name text primary key,"
-                       "    rate numeric,"
-                       "    ts text"
+                       "    name TEXT PRIMARY KEY,"
+                       "    rate NUMERIC,"
+                       "    ts TEXT,"
+                       "    favorite INTEGER DEFAULT 0"
                        ");";
     
     return [database executeUpdate:query];

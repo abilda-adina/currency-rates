@@ -8,8 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "CurrencyRate.h"
-#import "FavoriteCurrenciesTableViewCell.h"
-
+#import "SettingsFavoriteTableViewCell.h"
 @interface SettingsViewController ()
 
 @property NSArray *favoriteCurrencies;
@@ -18,13 +17,10 @@
 
 @implementation SettingsViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.favoriteCurrencies = [CurrencyRate getAllCurrencyRates];
-}
-
-- (void)back:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.mainCurrencyLabel.text = [CurrencyRate getMainCurrencyRate].name;
+    self.favoriteCurrencies = [CurrencyRate getFavoriteCurrencyRates];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -32,17 +28,30 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellIdentifier = @"FavoriteCurrency";
+    NSString *cellIdentifier = @"settingsFavoriteCell";
     CurrencyRate *currencyRate = [self.favoriteCurrencies objectAtIndex:indexPath.row];
-    FavoriteCurrenciesTableViewCell *cell = (FavoriteCurrenciesTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    SettingsFavoriteTableViewCell *cell = (SettingsFavoriteTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (cell == nil) {
         cell = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil][0];
     }
     
-    cell.name.text = currencyRate.name;
+    cell.favoriteCurrencyName.text = currencyRate.name;
     
     return cell;
+}
+
+- (void)setNavBarBackButton {
+    UIBarButtonItem* backBarButtonItem = [[UIBarButtonItem alloc]
+                                              initWithTitle:@"Back"
+                                              style:UIBarButtonItemStylePlain
+                                              target:self
+                                              action:@selector(back:)];
+    self.navigationItem.leftBarButtonItem = backBarButtonItem;
+}
+
+- (void)back:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

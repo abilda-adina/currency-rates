@@ -12,6 +12,8 @@
 		2F13353C1F8A8B02001D8F35 /* FavoriteCurrenciesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F13353B1F8A8B02001D8F35 /* FavoriteCurrenciesTableViewCell.m */; };
 		2F13353F1F8A9F95001D8F35 /* MainCurrencyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F13353E1F8A9F95001D8F35 /* MainCurrencyTableViewCell.m */; };
 		2F1335421F8A9FF0001D8F35 /* MainCurrencyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1335411F8A9FF0001D8F35 /* MainCurrencyTableViewController.m */; };
+		2F1335451F8AC4A0001D8F35 /* FavoriteCurrencyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1335441F8AC4A0001D8F35 /* FavoriteCurrencyTableViewController.m */; };
+		2F1335481F8AD699001D8F35 /* SettingsFavoriteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1335471F8AD699001D8F35 /* SettingsFavoriteTableViewCell.m */; };
 		2F9D20D91F87D09100866E73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9D20D81F87D09100866E73 /* main.m */; };
 		2F9D20DC1F87D09100866E73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9D20DB1F87D09100866E73 /* AppDelegate.m */; };
 		2F9D20E21F87D09100866E73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F9D20E01F87D09100866E73 /* Main.storyboard */; };
@@ -37,6 +39,10 @@
 		2F13353E1F8A9F95001D8F35 /* MainCurrencyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCurrencyTableViewCell.m; sourceTree = "<group>"; };
 		2F1335401F8A9FF0001D8F35 /* MainCurrencyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCurrencyTableViewController.h; sourceTree = "<group>"; };
 		2F1335411F8A9FF0001D8F35 /* MainCurrencyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCurrencyTableViewController.m; sourceTree = "<group>"; };
+		2F1335431F8AC4A0001D8F35 /* FavoriteCurrencyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteCurrencyTableViewController.h; sourceTree = "<group>"; };
+		2F1335441F8AC4A0001D8F35 /* FavoriteCurrencyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteCurrencyTableViewController.m; sourceTree = "<group>"; };
+		2F1335461F8AD699001D8F35 /* SettingsFavoriteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsFavoriteTableViewCell.h; sourceTree = "<group>"; };
+		2F1335471F8AD699001D8F35 /* SettingsFavoriteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsFavoriteTableViewCell.m; sourceTree = "<group>"; };
 		2F9D20D41F87D09100866E73 /* currency-rates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "currency-rates.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F9D20D81F87D09100866E73 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2F9D20DA1F87D09100866E73 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -139,6 +145,8 @@
 				2F1335381F8A7F43001D8F35 /* SettingsViewController.m */,
 				2F1335401F8A9FF0001D8F35 /* MainCurrencyTableViewController.h */,
 				2F1335411F8A9FF0001D8F35 /* MainCurrencyTableViewController.m */,
+				2F1335431F8AC4A0001D8F35 /* FavoriteCurrencyTableViewController.h */,
+				2F1335441F8AC4A0001D8F35 /* FavoriteCurrencyTableViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -152,6 +160,8 @@
 				2F13353B1F8A8B02001D8F35 /* FavoriteCurrenciesTableViewCell.m */,
 				2F13353D1F8A9F95001D8F35 /* MainCurrencyTableViewCell.h */,
 				2F13353E1F8A9F95001D8F35 /* MainCurrencyTableViewCell.m */,
+				2F1335461F8AD699001D8F35 /* SettingsFavoriteTableViewCell.h */,
+				2F1335471F8AD699001D8F35 /* SettingsFavoriteTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F1335451F8AC4A0001D8F35 /* FavoriteCurrencyTableViewController.m in Sources */,
 				2F9D21191F8A016600866E73 /* CurrencyListTableViewCell.m in Sources */,
 				2F9D21101F892F6300866E73 /* DBManager.m in Sources */,
 				2F9D21061F89043B00866E73 /* CurrencyRate.m in Sources */,
@@ -320,6 +331,7 @@
 				2F9D20DC1F87D09100866E73 /* AppDelegate.m in Sources */,
 				2F1335421F8A9FF0001D8F35 /* MainCurrencyTableViewController.m in Sources */,
 				2F13353C1F8A8B02001D8F35 /* FavoriteCurrenciesTableViewCell.m in Sources */,
+				2F1335481F8AD699001D8F35 /* SettingsFavoriteTableViewCell.m in Sources */,
 				2F9D20D91F87D09100866E73 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
