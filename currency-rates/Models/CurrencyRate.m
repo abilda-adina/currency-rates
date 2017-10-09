@@ -159,6 +159,16 @@
     [[NSUserDefaults standardUserDefaults] setObject:currencyRate.name forKey:@"mainCurrency"];
 }
 
++ (NSInteger)indexOfCurrencyRate:(CurrencyRate *)currencyRate InArray:(NSArray *)currencyRates {
+    for (NSInteger index = 0; index < [currencyRates count]; index++) {
+        if ([(CurrencyRate *)currencyRates[index] isEqual:currencyRate]){
+            return index;
+        }
+    }
+    
+    return -1;
+}
+
 - (BOOL)toggleFavorite {
     self.favorite = !self.favorite;
     FMDatabase *database = [DBManager getDatabase];
@@ -172,6 +182,10 @@
     }
     
     return self.favorite;
+}
+
+- (BOOL)isEqual:(CurrencyRate *)another {
+    return self.name == another.name;
 }
 
 @end

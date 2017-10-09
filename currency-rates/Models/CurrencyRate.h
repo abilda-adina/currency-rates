@@ -22,6 +22,8 @@
 + (NSURLSessionDataTask *)fetchCurrencyRatesFromAPI;
 + (CurrencyRate *)getMainCurrencyRate;
 + (void)setMainCurrencyRate:(CurrencyRate *)currencyRate;
++ (NSInteger)indexOfCurrencyRate:(CurrencyRate *)currencyRate InArray:(NSArray *)currencyRates;
 - (BOOL)toggleFavorite;
+- (BOOL)isEqual:(CurrencyRate *)another;
 
 @end

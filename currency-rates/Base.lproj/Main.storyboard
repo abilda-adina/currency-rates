@@ -209,7 +209,7 @@
             </objects>
             <point key="canvasLocation" x="1681" y="233"/>
         </scene>
-        <!--Favorite Currency Table View Controller-->
+        <!--Favorite-->
         <scene sceneID="xm7-Qs-QCN">
             <objects>
                 <tableViewController id="cRA-d9-404" customClass="FavoriteCurrencyTableViewController" sceneMemberID="viewController">
@@ -255,6 +255,7 @@
                             <outlet property="delegate" destination="cRA-d9-404" id="6Ym-gT-GLR"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Favorite" id="d2W-HB-oH7"/>
                     <connections>
                         <outlet property="currenciesTable" destination="TPt-Tf-XRY" id="dqO-CT-hW1"/>
                         <outlet property="searchDisplayController" destination="USY-e2-Z7m" id="CMo-Ov-mLX"/>
@@ -272,7 +273,7 @@
             </objects>
             <point key="canvasLocation" x="2713" y="604"/>
         </scene>
-        <!--Main Currency Table View Controller-->
+        <!--Main Currency-->
         <scene sceneID="c42-W4-vst">
             <objects>
                 <tableViewController id="D06-f3-SzS" customClass="MainCurrencyTableViewController" sceneMemberID="viewController">
@@ -318,6 +319,7 @@
                             <outlet property="delegate" destination="D06-f3-SzS" id="FXN-YA-PGo"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Main Currency" id="pJZ-8g-7Gs"/>
                     <connections>
                         <outlet property="currenciesTable" destination="Or9-LN-dlr" id="WZb-HY-7BV"/>
                         <outlet property="searchDisplayController" destination="7lA-Rx-EBb" id="n8v-93-0lG"/>

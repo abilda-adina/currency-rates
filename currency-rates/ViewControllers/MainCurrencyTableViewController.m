@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) NSArray *currencies;
 @property (nonatomic, strong) NSArray *filteredCurrencies;
+@property (nonatomic, strong) CurrencyRate *mainCurrency;
 @property (strong, nonatomic) IBOutlet UITableView *currenciesTable;
 
 @end
@@ -24,6 +25,7 @@
     [super viewDidLoad];
     self.currencies = [CurrencyRate getAllCurrencyRates];
     self.filteredCurrencies = self.currencies;
+    self.mainCurrency = [CurrencyRate getMainCurrencyRate];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -40,12 +42,26 @@
     }
     
     cell.mainCurrencyName.text = currencyRate.name;
+    cell.accessoryType = self.mainCurrency.name == currencyRate.name ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [CurrencyRate setMainCurrencyRate:self.filteredCurrencies[[indexPath row]]];
+    MainCurrencyTableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    CurrencyRate *selectedCurrencyRate = self.filteredCurrencies[[indexPath row]];
+    NSInteger oldMainCurrencyIndex = [CurrencyRate indexOfCurrencyRate:self.mainCurrency InArray:self.filteredCurrencies];
+    
+    [CurrencyRate setMainCurrencyRate:selectedCurrencyRate];
+    self.mainCurrency = selectedCurrencyRate;
+    
+    if (oldMainCurrencyIndex != -1) {
+        MainCurrencyTableViewCell *oldCell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:oldMainCurrencyIndex inSection:[indexPath section]]];
+        
+        oldCell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
+    selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
 }
 
 - (NSArray *)filterCurrenciesWithText:(NSString *)filterText {
