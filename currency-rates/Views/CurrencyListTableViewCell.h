@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *currencyName;
 @property (weak, nonatomic) IBOutlet UILabel *currencyRate;
+@property (weak, nonatomic) IBOutlet UILabel *mainCurrencySymbol;
 
 @end

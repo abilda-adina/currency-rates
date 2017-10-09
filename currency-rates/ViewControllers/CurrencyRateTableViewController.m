@@ -14,6 +14,7 @@
 @interface CurrencyRateTableViewController ()
 
 @property (nonatomic, strong) NSArray *currencies;
+@property (nonatomic, strong) CurrencyRate *mainCurrency;
 
 @end
 
@@ -21,16 +22,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.currencies = [CurrencyRate getAllCurrencyRates];
     
     [CurrencyRate fetchCurrencyRatesFromAPIWithBlock:^(BOOL success, NSError *error) {
         if (!error && success) {
-            self.currencies = [CurrencyRate getAllCurrencyRates];
-            
-            [self.tableView reloadData];
+            [self loadCurrencies];
         }
     }];
-    //[self setNavBarRightButton];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self loadCurrencies];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -47,22 +49,25 @@
     }
     
     cell.currencyName.text = currencyRate.name;
-    cell.currencyRate.text = [NSString stringWithFormat:@"%.2f", currencyRate.rate];
+    cell.currencyRate.text = [NSString stringWithFormat:@"%.2f", [self calculateCurrencyRate:currencyRate]];
+    cell.mainCurrencySymbol.text = self.mainCurrency.name;
 
     return cell;
 }
 
-//- (void)setNavBarRightButton {
-//    UIBarButtonItem* settingsBarButtonItem = [[UIBarButtonItem alloc]
-//                                              initWithTitle:@"Settings"
-//                                              style:UIBarButtonItemStylePlain
-//                                              target:self
-//                                              action:@selector(openSettings:)];
-//    self.navigationItem.rightBarButtonItem = settingsBarButtonItem;
-//}
-//- (void)openSettings:(id)sender {
-//    SettingsViewController *settingsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
-//    [self presentViewController:settingsViewController animated:YES completion:nil];
-//}
+- (void)loadCurrencies {
+    self.mainCurrency = [CurrencyRate getMainCurrencyRate];
+    self.currencies = [CurrencyRate getFavoriteCurrencyRates];
+    
+    if ([self.currencies count] == 0) {
+        self.currencies = [CurrencyRate getAllCurrencyRates];
+    }
+    
+    [self.tableView reloadData];
+}
+
+- (double)calculateCurrencyRate:(CurrencyRate *)currencyRate {
+    return self.mainCurrency.rate / currencyRate.rate;
+}
 
 @end

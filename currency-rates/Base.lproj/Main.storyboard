@@ -79,6 +79,7 @@
                                 <connections>
                                     <outlet property="currencyName" destination="MHy-xf-erY" id="ca5-Ss-fxB"/>
                                     <outlet property="currencyRate" destination="yE0-GC-CIk" id="f6N-rc-hqT"/>
+                                    <outlet property="mainCurrencySymbol" destination="Qfn-KN-RIY" id="g4Z-8j-uCr"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
