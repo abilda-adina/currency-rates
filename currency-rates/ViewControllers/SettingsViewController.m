@@ -21,6 +21,7 @@
     [super viewWillAppear:animated];
     self.mainCurrencyLabel.text = [CurrencyRate getMainCurrencyRate].name;
     self.favoriteCurrencies = [CurrencyRate getFavoriteCurrencyRates];
+    [self.favoriteCurrenciesTable reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

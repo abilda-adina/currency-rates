@@ -20,6 +20,7 @@
     static NSString *databaseName = @"currency-rate.db";
     
     NSString *databasePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:databaseName];
+    
     BOOL create = FALSE;
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:databasePath]) {

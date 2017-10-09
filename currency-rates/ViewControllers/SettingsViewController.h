@@ -11,5 +11,6 @@
 @interface SettingsViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *mainCurrencyLabel;
+@property (weak, nonatomic) IBOutlet UITableView *favoriteCurrenciesTable;
 
 @end

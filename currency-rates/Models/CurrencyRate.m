@@ -148,6 +148,10 @@
 + (CurrencyRate *)getMainCurrencyRate {
     NSString *mainCurrencyName = [[NSUserDefaults standardUserDefaults] stringForKey:@"mainCurrency"];
     
+    if (!mainCurrencyName) {
+        mainCurrencyName = @"USD";
+    }
+    
     return [CurrencyRate getCurrencyRateWithName:mainCurrencyName];
 }
 

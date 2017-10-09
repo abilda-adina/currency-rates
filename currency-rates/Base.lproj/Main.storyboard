@@ -200,6 +200,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="favoriteCurrenciesTable" destination="xQ1-Oa-wv9" id="jDy-qX-aiC"/>
                         <outlet property="mainCurrencyLabel" destination="Xso-zE-MSP" id="XGO-bX-0rM"/>
                     </connections>
                 </viewController>
