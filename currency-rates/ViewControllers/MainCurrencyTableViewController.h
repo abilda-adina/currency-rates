@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainCurrencyTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
+@interface MainCurrencyTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
 @end

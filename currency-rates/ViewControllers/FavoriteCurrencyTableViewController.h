@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FavoriteCurrencyTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
+@interface FavoriteCurrencyTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate>
 
 @end
