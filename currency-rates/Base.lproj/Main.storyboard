@@ -100,7 +100,7 @@
             </objects>
             <point key="canvasLocation" x="1025" y="233"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings-->
         <scene sceneID="nXG-Fe-BBI">
             <objects>
                 <viewController storyboardIdentifier="SettingsViewController" id="0LY-gE-uiQ" customClass="SettingsViewController" sceneMemberID="viewController">
@@ -118,9 +118,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite currency" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5Z-Fy-2Kg">
-                                <rect key="frame" x="117.5" y="209" width="140.5" height="21.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite currency" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5Z-Fy-2Kg">
+                                <rect key="frame" x="107" y="209" width="162" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -133,7 +133,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xQ1-Oa-wv9">
-                                <rect key="frame" x="0.0" y="259" width="375" height="337"/>
+                                <rect key="frame" x="0.0" y="244.5" width="375" height="358.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="settingsFavoriteCell" id="QSP-I6-NP2" customClass="SettingsFavoriteTableViewCell">
@@ -182,8 +182,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vQP-Wg-Ty6" firstAttribute="top" secondItem="xQ1-Oa-wv9" secondAttribute="bottom" constant="27" id="2yV-83-1e1"/>
-                            <constraint firstItem="xQ1-Oa-wv9" firstAttribute="top" secondItem="N5Z-Fy-2Kg" secondAttribute="bottom" constant="28.5" id="CdZ-Pw-i0m"/>
+                            <constraint firstItem="vQP-Wg-Ty6" firstAttribute="top" secondItem="xQ1-Oa-wv9" secondAttribute="bottom" constant="20" id="2yV-83-1e1"/>
+                            <constraint firstItem="xQ1-Oa-wv9" firstAttribute="top" secondItem="N5Z-Fy-2Kg" secondAttribute="bottom" constant="10" id="CdZ-Pw-i0m"/>
                             <constraint firstItem="vQP-Wg-Ty6" firstAttribute="leading" secondItem="baJ-cj-AhL" secondAttribute="leadingMargin" constant="136" id="I5n-AA-L2k"/>
                             <constraint firstItem="Xso-zE-MSP" firstAttribute="centerX" secondItem="MYe-NV-xjQ" secondAttribute="centerX" id="N3c-2n-ZdO"/>
                             <constraint firstItem="MYe-NV-xjQ" firstAttribute="leading" secondItem="baJ-cj-AhL" secondAttribute="leadingMargin" constant="101" id="QpR-yw-j0h"/>
@@ -200,6 +200,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="vQP-Wg-Ty6" secondAttribute="trailing" constant="136" id="yk7-5A-MmO"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Settings" id="2Kx-u7-kFi"/>
                     <connections>
                         <outlet property="favoriteCurrenciesTable" destination="xQ1-Oa-wv9" id="jDy-qX-aiC"/>
                         <outlet property="mainCurrencyLabel" destination="Xso-zE-MSP" id="XGO-bX-0rM"/>
